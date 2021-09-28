@@ -47,7 +47,7 @@ public class BoundaryTest {
     @Test
     public void testInvalidDbDetails() throws ServletException, IOException {
     	this.servlet = new AdminController();
-        ProductMasterDao productMasterDao = new ProductMasterDao("", "", "");
+        ProductMasterDao productMasterDao = new ProductMasterDao("jdbc:mysql://localhost/petclinic", "petclinic", "password");
         this.servlet.setProductMasterDao(productMasterDao);
     	when(this.request.getParameter("action")).thenReturn("list");
     	when(this.request.getRequestDispatcher("listproducts.jsp")).thenReturn(rd);
